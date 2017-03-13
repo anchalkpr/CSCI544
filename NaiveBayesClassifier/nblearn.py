@@ -2,6 +2,8 @@ from collections import Counter
 import math
 import sys
 
+#This class contains methods that learn the model paramters from
+#the training data
 class NaiveBayesLearningModel:
     
     def __init__(self, file1, file2):
