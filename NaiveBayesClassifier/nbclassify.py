@@ -1,6 +1,8 @@
 from collections import Counter
 import sys
 
+#This class specieifies methods for reading the model parameters from nbmodel.txt
+#and classifies the data in the test data file
 class NaiveBayesClassifier:
     def __init__(self, file1):
         self.tokens = {}
@@ -23,7 +25,8 @@ class NaiveBayesClassifier:
             else:
                 line = line.replace(p, "")
         return line
-                
+    
+    #reading the model parameters from nbmodel.txt
     def readModelParameters(self):
         txt_file = open(self.modelParametersFile)
         self.total_words = int(txt_file.readline().strip())
@@ -34,6 +37,7 @@ class NaiveBayesClassifier:
             line = txt_file.readline().strip().split(" ")
             self.tokens[line[0]] = [float(line[1]), float(line[2]), float(line[3]), float(line[4])]
             
+    #classifies the data in the test data file        
     def classify(self):
         txt_file = open(self.dataFile, "r")
         outputFile = open(self.outputFileName, "w")
